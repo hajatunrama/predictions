@@ -32,13 +32,14 @@ with col2:
     # Slider untuk berat (Kg), berdasarkan data minimal ~2 max ~5
     weight = st.slider('Berat Laptop (Kg)', min_value=1.0, max_value=6.0, value=2.5, step=0.1)
 
-# Tombol Prediksi
+# Tombol Prediksi (Harus rata kiri)
 if st.button('Hitung Estimasi Harga'):
-    # Membuat array data frame persis seperti struktur saat training
+    # Isi dari if harus menjorok ke dalam
     query = pd.DataFrame([[brand, processor_speed, ram_size, storage, screen_size, weight]], 
                          columns=['Brand', 'Processor_Speed', 'RAM_Size', 'Storage_Capacity', 'Screen_Size', 'Weight'])
     
     # Melakukan prediksi
     prediction = pipe.predict(query)[0]
     
+    # Menampilkan hasil
     st.success(f"Estimasi Harga Laptop: **$ {round(prediction, 2):,}**")
