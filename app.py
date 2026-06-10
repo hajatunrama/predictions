@@ -4,7 +4,7 @@ import pandas as pd
 
 # Load model dan dataframe
 pipe = pickle.load(open('pipe.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+#df = pickle.load(open('df.pkl', 'rb'))
 
 st.title("Prediksi Harga Laptop 💻")
 st.write("Masukkan spesifikasi laptop di bawah ini untuk mengetahui estimasi harganya.")
