@@ -68,7 +68,7 @@ if st.button('🚀 Hitung Estimasi Harga', use_container_width=True):
         prediction = pipe.predict(query)[0]
         
     # Konversi mata uang (Asumsi data asli adalah INR Rupee -> Rupiah)
-    harga_rupiah = prediction * 195
+    harga_rupiah = prediction * 750
     
     # Mengubah format angka menjadi gaya Indonesia (Contoh: Rp 5.500.000)
     harga_format = f"Rp {harga_rupiah:,.0f}".replace(',', '.')
