@@ -67,9 +67,15 @@ if st.button('🚀 Hitung Estimasi Harga', use_container_width=True):
         # Melakukan prediksi
         prediction = pipe.predict(query)[0]
         
+    # Konversi mata uang (Asumsi data asli adalah INR Rupee -> Rupiah)
+    harga_rupiah = prediction * 195
+    
+    # Mengubah format angka menjadi gaya Indonesia (Contoh: Rp 5.500.000)
+    harga_format = f"Rp {harga_rupiah:,.0f}".replace(',', '.')
+    
     # Menampilkan hasil dengan gaya "Metric" yang besar dan menonjol
     st.success("Perhitungan selesai!")
-    st.metric(label="Estimasi Harga di Pasaran:", value=f"$ {round(prediction, 2):,}")
+    st.metric(label="Estimasi Harga di Pasaran:", value=harga_format)
     
     # Catatan tambahan di bawah hasil
     st.caption("*Harga di atas adalah estimasi yang dihitung secara otomatis oleh sistem kecerdasan buatan. Harga asli di lapangan mungkin sedikit berbeda.*")
